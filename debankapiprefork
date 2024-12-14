@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: DeBank API
+  description: API for accessing DeBank's cryptocurrency wallet information.
+  version: '1.0.0'
+servers:
+  - url: https://pro-openapi.debank.com
+    description: DeBank OpenAPI Server
+paths:
+  /v1/user/used_chain_list:
+    get:
+      operationId: getUserUsedChainList
+      summary: Retrieve the list of chains a user has interacted with.
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: The user's wallet address.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of chains the user has used.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The chain's ID.
+                    community_id:
+                      type: integer
+                      description: The community-identified ID.
+                    name:
+                      type: string
+                      description: The chain's name.
+                    logo_url:
+                      type: string
+                      description: URL of the chain's logo image.
+                    native_token_id:
+                      type: string
+                      description: The native token's ID.
+                    wrapped_token_id:
+                      type: string
+                      description: The address of the native token.
+                    born_at:
+                      type: integer
+                      description: Birth time of the address in the current chain.
+  /v1/user/chain_balance:
+    get:
+      operationId: getUserChainBalance
+      summary: Retrieve the balance of a user on a specific chain.
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: The user's wallet address.
+          schema:
+            type: string
+        - name: chain_id
+          in: query
+          required: true
+          description: The chain ID (e.g., eth, bsc, xdai).
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The user's balance on the specified chain.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  usd_value:
+                    type: number
+                    description: The balance of the account in USD.

@@ -1,0 +1,257 @@
+openapi: 3.1.0
+info:
+  title: Dex Screener API
+  description: Access cryptocurrency market data including token profiles, boosts, and trading pairs.
+  version: '1.0.0'
+servers:
+  - url: https://api.dexscreener.com
+    description: Dex Screener API Server
+paths:
+  /token-profiles/latest/v1:
+    get:
+      operationId: getLatestTokenProfiles
+      summary: Get the latest token profiles.
+      description: Retrieve the latest token profiles.
+      responses:
+        '200':
+          description: A list of token profiles.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TokenProfile'
+  /token-boosts/latest/v1:
+    get:
+      operationId: getLatestTokenBoosts
+      summary: Get the latest boosted tokens.
+      description: Retrieve the latest tokens with boosts.
+      responses:
+        '200':
+          description: A list of boosted tokens.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TokenBoost'
+  /token-boosts/top/v1:
+    get:
+      operationId: getTopBoostedTokens
+      summary: Get tokens with the most active boosts.
+      description: Retrieve tokens with the most active boosts.
+      responses:
+        '200':
+          description: A list of tokens with the most boosts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TokenBoost'
+  /orders/v1/{chainId}/{tokenAddress}:
+    get:
+      operationId: getTokenOrders
+      summary: Get orders for a specific token.
+      description: Retrieve orders for a token by its chain ID and address.
+      parameters:
+        - name: chainId
+          in: path
+          required: true
+          description: The blockchain ID (e.g., solana).
+          schema:
+            type: string
+        - name: tokenAddress
+          in: path
+          required: true
+          description: The token address.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of orders for the token.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+  /latest/dex/pairs/{chainId}/{pairId}:
+    get:
+      operationId: getPairData
+      summary: Get trading pair data by chain and pair address.
+      description: Retrieve detailed data for a trading pair by chain and pair address.
+      parameters:
+        - name: chainId
+          in: path
+          required: true
+          description: The blockchain ID (e.g., solana).
+          schema:
+            type: string
+        - name: pairId
+          in: path
+          required: true
+          description: The trading pair ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detailed data for the trading pair.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PairData'
+  /latest/dex/tokens/{tokenAddresses}:
+    get:
+      operationId: getTokenPairs
+      summary: Get trading pairs by token addresses.
+      description: Retrieve trading pairs for one or more token addresses.
+      parameters:
+        - name: tokenAddresses
+          in: path
+          required: true
+          description: Comma-separated token addresses (up to 30).
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of trading pairs for the token addresses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PairDataList'
+components:
+  schemas:
+    TokenProfile:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: URL for the token profile.
+        chainId:
+          type: string
+          description: The blockchain ID.
+        tokenAddress:
+          type: string
+          description: The address of the token.
+        icon:
+          type: string
+          format: uri
+          description: Icon URL for the token.
+        header:
+          type: string
+          format: uri
+          description: Header image URL for the token.
+        description:
+          type: string
+          description: Description of the token.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    TokenBoost:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: URL for the token boost.
+        chainId:
+          type: string
+          description: The blockchain ID.
+        tokenAddress:
+          type: string
+          description: The token address.
+        amount:
+          type: number
+          description: Amount of the boost.
+        totalAmount:
+          type: number
+          description: Total amount of boosts for the token.
+        icon:
+          type: string
+          format: uri
+          description: Icon URL for the token.
+        header:
+          type: string
+          format: uri
+          description: Header image URL for the token.
+        description:
+          type: string
+          description: Description of the token.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    Order:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - tokenProfile
+            - communityTakeover
+            - tokenAd
+            - trendingBarAd
+          description: The type of the order.
+        status:
+          type: string
+          enum:
+            - processing
+            - cancelled
+            - on-hold
+            - approved
+            - rejected
+          description: The status of the order.
+        paymentTimestamp:
+          type: number
+          description: The timestamp of the payment.
+    PairData:
+      type: object
+      properties:
+        chainId:
+          type: string
+          description: The blockchain ID.
+        dexId:
+          type: string
+          description: The decentralized exchange ID.
+        url:
+          type: string
+          format: uri
+          description: URL for the trading pair.
+        priceUsd:
+          type: string
+          description: Price in USD.
+        priceNative:
+          type: string
+          description: Price in native currency.
+        liquidity:
+          type: object
+          properties:
+            usd:
+              type: number
+              description: Liquidity in USD.
+    Link:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of the link.
+        label:
+          type: string
+          description: The label for the link.
+        url:
+          type: string
+          format: uri
+          description: URL for the link.
+    PairDataList:
+      type: object
+      properties:
+        schemaVersion:
+          type: string
+          description: Schema version of the response.
+        pairs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PairData'

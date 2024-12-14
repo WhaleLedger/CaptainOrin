@@ -20,3 +20,30 @@ We reserve the right to terminate access to the Plugin for any user violating th
 
 Disclaimer
 The Plugin is provided "as is" without warranties of any kind. We are not responsible for any losses or damages resulting from your use of the Plugin.
+
+Privacy Policy
+Data Collected
+The Plugin may process the following data:
+
+Cryptocurrency wallet addresses provided by the user.
+Information retrieved from the DeBank API, including blockchain activity and balances.
+Note: No personally identifiable information (PII) is collected or stored by the Plugin.
+
+How Data is Used
+
+Wallet addresses are used solely to query the DeBank API for blockchain-related data.
+Retrieved data is displayed within the Plugin interface and not stored or shared with third parties.
+Third-Party Services
+
+The Plugin uses the DeBank API to provide its functionality. Please review DeBank’s Privacy Policy for additional information on their data handling practices.
+Data Security
+We take reasonable steps to protect any data processed by the Plugin. However, we cannot guarantee the security of information transmitted over the internet.
+
+User Responsibility
+You are responsible for ensuring the security of your wallet addresses and private keys. The Plugin does not request or access private keys.
+
+Changes to This Policy
+We may update this policy from time to time. Continued use of the Plugin constitutes your acceptance of any changes.
+
+Contact Information
+If you have questions about these terms or the privacy policy, please contact us at xyy9179@gmail.com

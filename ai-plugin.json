@@ -6,11 +6,14 @@
   "description_for_model": "Plugin to interact with DeBank's API for wallet and balance information.",
   "auth": {
     "type": "api_key",
-    "instructions": "Include your DeBank API key in the header with key 'AccessKey'."
+    "instructions": "Include your DeBank API key in the header with key 'AccessKey'.",
+    "headers": {
+      "AccessKey": "e80930682c291c5823da553ac7d004ce8aa84aad"
+    }
   },
   "api": {
     "type": "openapi",
-    "url": "https://github.com/WhaleLedger/CaptainOrin/blob/main/debank-api.yaml"
+    "url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/main/debank-api.yaml"
   },
   "logo_url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/Orin.png",
   "contact_email": "xyy9179@gmail.com",

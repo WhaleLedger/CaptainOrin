@@ -13,7 +13,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/main/debank-api.yaml"
+    "url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/debank-api.yaml"
   },
   "logo_url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/Orin.png",
   "contact_email": "xyy9179@gmail.com",

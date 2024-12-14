@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "DeBank Wallet Assistant",
+  "name_for_model": "debank_wallet",
+  "description_for_human": "Retrieve cryptocurrency wallet information and balances.",
+  "description_for_model": "Plugin to interact with DeBank's API for wallet and balance information.",
+  "auth": {
+    "type": "api_key",
+    "instructions": "Include your DeBank API key in the header with key 'AccessKey'."
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://github.com/WhaleLedger/CaptainOrin/blob/main/debank-api.yaml"
+  },
+  "logo_url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/Orin.png",
+  "contact_email": "xyy9179@gmail.com",
+  "legal_info_url": "https://tobeprepared.com/legal"
+}

@@ -1,0 +1,22 @@
+Terms of Service
+Welcome to the DeBank Wallet Assistant plugin ("the Plugin"). By using this Plugin, you agree to the following terms:
+
+Service Description
+The Plugin provides access to cryptocurrency wallet information, including balances and blockchain interactions, using the DeBank API.
+
+Usage
+You agree to use this Plugin responsibly and in compliance with all applicable laws and regulations. The Plugin is provided for informational purposes only and should not be relied upon for financial decisions.
+
+Limitations
+
+The Plugin is dependent on third-party services (e.g., DeBank API) and may experience downtime or changes outside our control.
+We are not responsible for errors, inaccuracies, or delays in the data provided.
+Prohibited Activities
+
+You may not use this Plugin to engage in illegal, unethical, or unauthorized activities.
+You must not attempt to reverse-engineer, tamper with, or misuse the Plugin.
+Termination
+We reserve the right to terminate access to the Plugin for any user violating these terms.
+
+Disclaimer
+The Plugin is provided "as is" without warranties of any kind. We are not responsible for any losses or damages resulting from your use of the Plugin.

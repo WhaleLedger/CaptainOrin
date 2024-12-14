@@ -11,7 +11,7 @@
     "type": "openapi",
     "url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/dexscreener-api.yaml"
   },
-  "logo_url": "https://example.com/logo.png",
-  "contact_email": "your-email@example.com",
-  "legal_info_url": "https://example.com/legal"
+  "logo_url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/Orin.png",
+  "contact_email": "xyy9179@gmail.com",
+  "legal_info_url": "https://raw.githubusercontent.com/WhaleLedger/CaptainOrin/refs/heads/main/Terms%20of%20Service%20and%20Privacy%20Policy.txt"
 }

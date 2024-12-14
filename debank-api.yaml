@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: DeBank API
   description: API for accessing DeBank's cryptocurrency wallet information, including net curves.
@@ -32,21 +32,24 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    timestamp:
-                      type: number
-                      format: double
-                      description: The timestamp on the curve.
-                    usd_value:
-                      type: number
-                      format: double
-                      description: The total value of the user's assets at the given timestamp.
+                  $ref: '#/components/schemas/NetCurve'
 components:
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: AccessKey
+  schemas:
+    NetCurve:
+      type: object
+      properties:
+        timestamp:
+          type: number
+          format: double
+          description: The timestamp on the curve.
+        usd_value:
+          type: number
+          format: double
+          description: The total value of the user's assets at the given timestamp.
 security:
   - apiKey: []

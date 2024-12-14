@@ -32,24 +32,21 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/NetCurve'
+                  type: object
+                  properties:
+                    timestamp:
+                      type: number
+                      format: double
+                      description: The timestamp on the curve.
+                    usd_value:
+                      type: number
+                      format: double
+                      description: The total value of the user's assets at the given timestamp.
 components:
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: AccessKey
-  schemas:
-    NetCurve:
-      type: object
-      properties:
-        timestamp:
-          type: number
-          format: double
-          description: The timestamp on the curve.
-        usd_value:
-          type: number
-          format: double
-          description: The total value of the user's assets at the given timestamp.
 security:
   - apiKey: []
